@@ -17,7 +17,7 @@ export default function Home() {
 
         {/* Intro */}
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Welcome to Your Next.js App
+          Welcome to Social Engagement Group
         </h1>
         <p className="text-gray-700 dark:text-gray-300 max-w-xl sm:text-lg">
           Start building your amazing app with Next.js and Tailwind CSS. Everything
