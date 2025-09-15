@@ -15,3 +15,16 @@ export async function POST(request) {
   // Return the first user if available, otherwise return all data
   return new Response(JSON.stringify(data && data[0] ? data[0] : data), { status: 201 });
 }
+
+
+export async function GET() {
+  const { data, error } = await supabase
+    .from('User') // Your table name
+    .select('*'); // Fetch all columns
+
+  if (error) {
+    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
+  }
+
+  return new Response(JSON.stringify(data), { status: 200 });
+}
