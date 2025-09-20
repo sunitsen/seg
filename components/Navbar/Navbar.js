@@ -16,9 +16,9 @@ export default function Navbar() {
             alt="Flowbite Logo"
             width={70}
             height={100}
-          
+
           />
-         
+
         </a>
 
         {/* Buttons & Hamburger */}
@@ -61,15 +61,14 @@ export default function Navbar() {
 
         {/* Menu Links */}
         <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } w-full md:flex md:w-auto md:order-1 items-center justify-between`}
+          className={`${isOpen ? "block" : "hidden"
+            } w-full md:flex md:w-auto md:order-1 items-center justify-between`}
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 Semi-bold border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  ">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 Semi-bold border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 Home
               </a>
@@ -77,7 +76,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 About
               </a>
@@ -85,7 +84,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 Services
               </a>
@@ -93,28 +92,29 @@ export default function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 Industries
               </a>
             </li>
-             <li>
+            <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 Case Studies
               </a>
             </li>
-             <li>
+            <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 hover:text-blue-500"
               >
                 Insights
               </a>
             </li>
           </ul>
+
         </div>
       </div>
     </nav>

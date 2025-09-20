@@ -11,7 +11,7 @@ const page = () => {
 
       <div className="max-w-screen-7xl w-full mx-auto custom-bg-primary flex flex-wrap justify-center items-center min-h-screen p-4">
         {/* Content - 40% on md+, full width below md */}
-        <div className="   w-full md:w-2/5 flex items-center justify-center p-4 z-1">
+        <div className=" w-full md:w-2/5 flex items-center justify-center p-4 z-1">
           <HeroContant />
         </div>
 
