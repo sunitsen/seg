@@ -16,7 +16,7 @@ const MultiRowSlider = () => {
     }));
 
   return (
-    <div className="space-y-4 p-4 max-w-6xl mx-auto">
+    <div className="space-y-4 p-4 max-w-6xl mx-auto ">
       {Array.from({ length: rows }).map((_, rowIndex) => {
         const boxes = generateBoxes(rowIndex);
         const reverse = rowIndex % 2 === 1; // alternate direction
@@ -39,8 +39,9 @@ const MultiRowSlider = () => {
             {boxes.map((box) => (
               <SwiperSlide key={box.id}>
                 <div
-                  className="h-24 flex items-center justify-center text-white font-bold rounded-lg"
+                  className="h-50 flex items-center justify-center text-white font-bold rounded-lg"
                   style={{ backgroundColor: box.color }}
+                  
                 >
                   {box.title}
                 </div>
