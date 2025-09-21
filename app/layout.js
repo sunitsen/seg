@@ -1,16 +1,7 @@
 
-import { Geist, Geist_Mono, Barlow, Manrope } from "next/font/google";
+import { Geist, Geist_Mono, Barlow, Manrope, Lobster  } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -23,6 +14,23 @@ const barlow = Barlow({
   subsets: ["latin"],
   weight: ["400", "500", "700"], // choose weights you need
 });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+
+const lobster = Lobster({
+  variable: "--font-lobster", // lowercase for consistency
+  subsets: ["latin"],
+  weight: ["400", ],
+});
+
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -34,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <body
-  className={`${barlow.variable} ${manrope.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+  className={`${barlow.variable} ${lobster.variable} ${manrope.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
 >
   {children}
 </body>

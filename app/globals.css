@@ -10,7 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* custom font */
+  --font-body: 'Manrope', sans-serif;
+  --font-heading: 'Barlow', sans-serif;
+  --font-Lobster: 'Barlow', sans-serif;
 }
+
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -30,30 +38,89 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code, pre {
-  font-family: var(--font-mono), monospace; /* Geist Mono */
+  font-family: var(--font-body), monospace; /* Geist Mono */
 }
 /* Project color scheme: */
 .custom-bg-primary{
   background: #232326; 
 }
 
-
+/* =========================
+   Custom Shadow Overlay
+========================= */
 .custom-shadow {
-  position: relative; /* needed for pseudo-element */
+  position: relative; /* parent for pseudo-element */
   z-index: 1;
 }
 
 .custom-shadow::after {
   content: "";
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 15%;
   height: 100%;
-  pointer-events: none;
-
-  /* smoother, wider gradient */
-  background: linear-gradient(90deg, rgb(35, 35, 38) 0%, rgba(35, 35, 38, .5) 30%, rgba(35, 35, 38, .2) 60%, rgba(35, 35, 38, 0) 100%);
-
-  z-index: 1; /* place behind the content */
+  background: linear-gradient(
+    90deg,
+    #232326 0%,
+    rgba(35, 35, 38, 0.93) 30%,
+    rgba(35, 35, 38, 0.33) 60%,
+    rgba(35, 35, 38, 0) 80%
+  );
+  z-index: 1;
 }
+
+/* =========================
+   Hero Heading
+========================= */
+.hero-heading {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: 5rem;
+}
+
+.hero-heading span {
+  font-family: var(--font-Lobster), cursive;
+  font-family: lobster, cursive;
+}
+
+/* =========================
+   Hero Content Positioning
+========================= */
+.position-hero-content {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  width: 50%;
+}
+
+/* Gradient overlay behind content */
+.position-hero-content::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #232326 0%,
+    rgba(35, 35, 38, 0.93) 30%,
+    rgba(35, 35, 38, 0.33) 60%,
+    rgba(35, 35, 38, 0) 80%
+  );
+  z-index: -1;
+}
+
+/* Medium screens ≤ 1320px */ 
+
+
+
+/* Small screens ≤ 767px */ 
+@media only screen and (max-width: 767px) { .position-hero-content { position: relative; top: 2rem; left: 0; width: 100%; padding: 0; }
+
+/* Extra small screens ≤ 475px */ 
+@media only screen and (max-width: 475px) { .position-hero-content { top: 1rem; } .hero-heading { font-size: 2rem; } .position-hero-content p { font-size: 1rem; font-weight: 800; margin-top: 1rem; padding: 0; } } .hero-heading { font-size: 3rem; } .position-hero-content p { font-size: 1.2rem; font-weight: 800; margin-top: 1rem; padding: 0; } }

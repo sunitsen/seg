@@ -11,24 +11,26 @@ export default function Navbar() {
       <div className="max-w-[1800px] flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3">
-          <Image
-            src="/SiteLogo/seg.png"
-            alt="Flowbite Logo"
-            width={70}
-            height={100}
+       <div className="w-[100px] aspect-[7/10] relative">
+  <Image
+    src="/SiteLogo/seg.png"
+    alt="Flowbite Logo"
+    fill
+    className="object-contain"
+  />
+</div>
 
-          />
 
         </a>
 
         {/* Buttons & Hamburger */}
         <div className="flex md:order-2 items-center space-x-3">
-          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button className="border border-white bg-transparent text-white font-barlow font-semibold px-6 md:py-1.7 py-1.5 rounded-full hover:bg-white hover:text-gray-900 transition">
             Contact Us
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span className="sr-only">Open main menu</span>
             <svg
