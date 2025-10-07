@@ -8,7 +8,7 @@ const page = () => {
     <>
     
 
-      <div className="container-fluid mx-auto customMargin p-0">
+      <div className="container-fluid mx-auto customPadding p-0 hero-section">
 
         {/* new test section */}
         <div className="grid grid-cols-1 md:grid-cols-[40%_60%] ">

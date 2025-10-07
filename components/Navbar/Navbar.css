@@ -1,4 +1,8 @@
 
+.global-navbar{
+  background: #232326;
+;
+}
 @media only screen and (max-width: 1180px) {
  .global-navbar .container-fluid{
  padding-right: 15px !important; 

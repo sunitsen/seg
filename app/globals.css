@@ -89,8 +89,10 @@ code, pre {
 ========================================================= */
 
 /* ---------- Layout Spacing ---------- */
-.customMargin {
-  margin-top: 100px;
+.customPadding {
+  padding-top: 100px;
+  padding-bottom: 70px;
+
 }
 
 /* ---------- Hero Content Container ---------- */
@@ -108,6 +110,7 @@ code, pre {
   letter-spacing: 0;
   font-size: 80px;
   line-height: 95px;
+  color: #ffffff;
 }
 
 /* ---------- Hero Subtext ---------- */
@@ -179,8 +182,8 @@ code, pre {
 
 /* ---------- ≤ 767px (Tablets & Phones) ---------- */
 @media only screen and (max-width: 767px) {
-  .customMargin {
-    margin-top: 0;
+  .customPadding {
+    padding-top: 0;
   }
 
   .reduce-margin {
@@ -210,4 +213,7 @@ code, pre {
     padding-block: 1.5rem;
     font-size: 14px;
   }
+}
+.hero-section {
+  background: #232326;
 }
