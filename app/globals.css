@@ -1,55 +1,67 @@
+/* =========================================================
+   Tailwind Import
+========================================================= */
 @import "tailwindcss";
 
+
+/* =========================================================
+   Root Variables (Light Theme)
+========================================================= */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+
+/* =========================================================
+   Custom Theme Variables (Inline)
+========================================================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 
-  /* custom font */
-  --font-body: 'Manrope', sans-serif;
-  --font-heading: 'Barlow', sans-serif;
-  --font-Lobster: 'Barlow', sans-serif;
+  /* Custom Fonts */
+  --font-body: 'Inter', sans-serif;      /* Body text */
+  --font-heading: 'Inter', sans-serif;   /* Headings */
+  --font-lobster: 'Lobster', cursive;    /* Hero heading accents */
 }
 
 
-
-
+/* =========================================================
+   Dark Mode Variables
+========================================================= */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #232326;
     --foreground: #ededed;
   }
 }
 
+
+/* =========================================================
+   Global Styles
+========================================================= */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), sans-serif; /* Manrope */
+  font-family: var(--font-body);
 }
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), sans-serif; /* Barlow */
+  font-family: var(--font-heading);
   font-weight: 700;
 }
 
 code, pre {
-  font-family: var(--font-body), monospace; /* Geist Mono */
-}
-/* Project color scheme: */
-.custom-bg-primary{
-  background: #232326; 
+  font-family: var(--font-body), monospace;
 }
 
-/* =========================
+
+/* =========================================================
    Custom Shadow Overlay
-========================= */
+========================================================= */
 .custom-shadow {
-  position: relative; /* parent for pseudo-element */
+  position: relative;
   z-index: 1;
 }
 
@@ -59,7 +71,7 @@ code, pre {
   position: absolute;
   top: 0;
   left: 0;
-  width: 15%;
+  width: 18%;
   height: 100%;
   background: linear-gradient(
     90deg,
@@ -71,56 +83,131 @@ code, pre {
   z-index: 1;
 }
 
-/* =========================
-   Hero Heading
-========================= */
+
+/* =========================================================
+   Hero Section Styles
+========================================================= */
+
+/* ---------- Layout Spacing ---------- */
+.customMargin {
+  margin-top: 100px;
+}
+
+/* ---------- Hero Content Container ---------- */
+.hero-content {
+  position: absolute;
+  left: 140px;
+  z-index: 999;
+}
+
+/* ---------- Hero Heading ---------- */
 .hero-heading {
-  font-family: var(--font-barlow), sans-serif;
-  font-weight: 800;
-  line-height: 1.1;
-  font-size: 5rem;
+  font-family: Inter;
+  font-weight: 700;
+  font-style: bold;
+  letter-spacing: 0;
+  font-size: 80px;
+  line-height: 95px;
 }
 
-.hero-heading span {
-  font-family: var(--font-Lobster), cursive;
-  font-family: lobster, cursive;
+/* ---------- Hero Subtext ---------- */
+.hero-subtext {
+  padding-block: 3rem;
+  font-family: Inter;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 18px;
+  line-height: 30px;
 }
 
-/* =========================
-   Hero Content Positioning
-========================= */
-.position-hero-content {
-  position: absolute;
-  top: 200px;
-  left: 100px;
-  width: 50%;
+/* ---------- Hero Button ---------- */
+.hero-btn {
+  border-radius: 14px;
+  font-family: Inter !important;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 20px;
+  line-height: 20px;
 }
 
-/* Gradient overlay behind content */
-.position-hero-content::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    #232326 0%,
-    rgba(35, 35, 38, 0.93) 30%,
-    rgba(35, 35, 38, 0.33) 60%,
-    rgba(35, 35, 38, 0) 80%
-  );
-  z-index: -1;
+
+/* =========================================================
+   Responsive Adjustments
+========================================================= */
+
+/* ---------- ≤ 1580px ---------- */
+@media only screen and (max-width: 1580px) {
+  .hero-heading {
+    font-size: 62px;
+    line-height: 76px;
+  }
+
+  .hero-subtext {
+    padding-block: 2.5rem;
+    font-size: 16px;
+    line-height: 24px;
+    width: 90%;
+  }
 }
 
-/* Medium screens ≤ 1320px */ 
+/* ---------- ≤ 1450px ---------- */
+@media only screen and (max-width: 1450px) {
+  .hero-heading {
+    font-size: 54px;
+    line-height: 60px;
+  }
 
+  .hero-subtext {
+    font-size: 16px;
+    line-height: 24px;
+    width: 80%;
+  }
+}
 
+/* ---------- ≤ 1180px ---------- */
+@media only screen and (max-width: 1180px) {
+  .hero-content {
+    position: relative;
+    left: 10px;
+    z-index: 999;
+  }
 
-/* Small screens ≤ 767px */ 
-@media only screen and (max-width: 767px) { .position-hero-content { position: relative; top: 2rem; left: 0; width: 100%; padding: 0; }
+  .hero-subtext {
+    width: 100%;
+  }
+}
 
-/* Extra small screens ≤ 475px */ 
-@media only screen and (max-width: 475px) { .position-hero-content { top: 1rem; } .hero-heading { font-size: 2rem; } .position-hero-content p { font-size: 1rem; font-weight: 800; margin-top: 1rem; padding: 0; } } .hero-heading { font-size: 3rem; } .position-hero-content p { font-size: 1.2rem; font-weight: 800; margin-top: 1rem; padding: 0; } }
+/* ---------- ≤ 767px (Tablets & Phones) ---------- */
+@media only screen and (max-width: 767px) {
+  .customMargin {
+    margin-top: 0;
+  }
+
+  .reduce-margin {
+    margin-left: 0 !important;
+  }
+
+  .hero-btn {
+    font-size: 16px;
+  }
+}
+
+/* ---------- ≤ 500px (Mobile) ---------- */
+@media only screen and (max-width: 500px) {
+  .hero-heading {
+    font-size: 42px;
+    line-height: 45px;
+  }
+
+  .hero-content {
+    position: relative;
+    left: 0;
+    z-index: 999;
+  }
+
+  .hero-subtext {
+    width: 100%;
+    padding-block: 1.5rem;
+    font-size: 14px;
+  }
+}

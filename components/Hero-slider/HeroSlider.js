@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -25,49 +25,63 @@ const images = [
 ];
 
 const MultiRowSlider = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // only render slider on client
+  }, []);
+
+  if (!isClient) return null; // prevent server-side flash
+
   const rows = 3;
   const imagesPerRow = 5;
 
   return (
-    <div className="space-y-4 p-4 max-w-6xl mx-auto">
+    <div className="space-y-4  max-w-6xl mx-auto">
       {Array.from({ length: rows }).map((_, rowIndex) => {
         const reverse = rowIndex % 2 === 1;
+        const shift = rowIndex * 50; // smaller shift for subtle stagger
 
         return (
-          <Swiper
+          <div
             key={rowIndex}
-            className="custom-shadow"
-            modules={[Autoplay]}
-            slidesPerView={imagesPerRow}
-            spaceBetween={20}
-            loop={true}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              reverseDirection: reverse,
-              pauseOnMouseEnter: true,
-            }}
-            speed={5000}
+            className="overflow-hidden relative reduce-margin"
+            style={{ marginLeft: `${shift}px` }}
           >
-            {images.map((img) => (
-              <SwiperSlide key={`${rowIndex}-${img.id}`}>
-                <div
-                  className={`
-                    relative w-full border border-[#232326] rounded-lg overflow-hidden
-                    aspect-[16/9]  /* mobile default */
-                    md:aspect-[3/3] /* desktop */
-                  `}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            <Swiper
+              className=""
+              modules={[Autoplay]}
+              slidesPerView={imagesPerRow}
+              spaceBetween={10}
+              loop={true}
+              speed={5000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: reverse,
+                pauseOnMouseEnter: true,
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+                1280: { slidesPerView: 5 },
+              }}
+            >
+              {images.map((img) => (
+                <SwiperSlide key={`${rowIndex}-${img.id}`}>
+                  <div className="relative w-full border border-[#232326] overflow-hidden aspect-[2/2]">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         );
       })}
     </div>
