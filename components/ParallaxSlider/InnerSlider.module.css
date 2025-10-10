@@ -1,0 +1,85 @@
+/* ========== Slider Layout ========== */
+.sliderContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.sliderWrapper {
+  width: 100%;
+}
+
+/* ========== Card Styles ========== */
+.innerCard {
+  position: relative;
+  border-radius: 15px;
+
+  text-align: center;
+  height:500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: box-shadow 0.3s ease;
+
+
+  /* Background and glass effect */
+  background-image: url('/bg/innersliderbg.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Ensure content sits above overlay */
+.innerCard * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover animation */
+
+
+/* ========== Icon and Text ========== */
+
+.innerCard p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ========== Swiper Pagination ========== */
+
+.innerCard img{
+  max-width: 150px;
+
+}
+
+.innerCard h4{
+  font-size: 20px;
+  font-family: Lobster;
+font-weight: 400;
+font-style: Regular;
+font-size: 24px;
+line-height: 32PX;
+letter-spacing: 0%;
+text-align: center;
+width: 90%;
+
+  
+}
+.sliderContainer {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sliderContainer.loaded {
+  opacity: 1;
+}
+

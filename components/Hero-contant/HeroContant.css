@@ -1,0 +1,130 @@
+
+/* ---------- Hero Content Container ---------- */
+.hero-content {
+  position: absolute;
+  left: 140px;
+  z-index: 111;
+}
+
+/* ---------- Hero Heading ---------- */
+.hero-heading {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: bold;
+  letter-spacing: 0;
+  font-size: 80px;
+  line-height: 95px;
+  color: #ffffff;
+}
+
+/* ---------- Hero Subtext ---------- */
+.hero-subtext {
+  padding-block: 3rem;
+  font-family: Inter;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+/* ---------- Hero Button ---------- */
+.hero-btn {
+  border-radius: 14px;
+  font-family: Inter !important;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+
+/* =========================================================
+   Responsive Adjustments
+========================================================= */
+
+/* ---------- ≤ 1580px ---------- */
+@media only screen and (max-width: 1580px) {
+  .hero-heading {
+    font-size: 62px;
+    line-height: 76px;
+  }
+
+  .hero-subtext {
+    padding-block: 2.5rem;
+    font-size: 16px;
+    line-height: 24px;
+    width: 90%;
+  }
+}
+
+/* ---------- ≤ 1450px ---------- */
+@media only screen and (max-width: 1450px) {
+  .hero-heading {
+    font-size: 54px;
+    line-height: 60px;
+  }
+
+  .hero-subtext {
+    font-size: 16px;
+    line-height: 24px;
+    width: 80%;
+  }
+}
+
+/* ---------- ≤ 1180px ---------- */
+@media only screen and (max-width: 1180px) {
+  .hero-content {
+    position: relative;
+    left: 10px;
+    z-index: 111;
+  }
+
+  .hero-subtext {
+    width: 100%;
+  }
+}
+
+/* ---------- ≤ 767px (Tablets & Phones) ---------- */
+@media only screen and (max-width: 767px) {
+  .customPadding {
+    padding-top: 0;
+  }
+
+  .reduce-margin {
+    margin-left: 0 !important;
+  }
+
+  .hero-btn {
+    font-size: 16px;
+  }
+}
+
+/* ---------- ≤ 500px (Mobile) ---------- */
+@media only screen and (max-width: 500px) {
+  .hero-heading {
+    font-size: 42px;
+    line-height: 45px;
+  }
+
+  .hero-content {
+    position: relative;
+    left: 0;
+    z-index: 11;
+  }
+
+  .hero-subtext {
+    width: 100%;
+    padding-block: 1.5rem;
+    font-size: 14px;
+  }
+}
+.hero-section {
+  background: #232326;
+}
+
+.customPadding {
+  padding-top: 150px;
+  padding-bottom: 80px;
+
+
+}

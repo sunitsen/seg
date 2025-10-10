@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./HeroContant.css";
+
 const HeroContant = () => {
   return (
     <div className="flex flex-col justify-start items-start h-full px-4 py-8 space-y-6">

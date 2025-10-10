@@ -1,13 +1,31 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  // Detect scroll to toggle sticky class
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="pt-5 global-navbar">
-      <div className="container-fluid mx-auto px-3 sm:px-33">
+    <nav
+      className={`fixed top-0 left-0 w-full z-[999] transition-all duration-500 ${
+        isSticky ? "bg-black shadow-md py-3" : "bg-transparent py-5"
+      }`}
+    >
+      <div className="container-fluid mx-auto px-3 sm:px-10">
         <div className="flex flex-wrap items-center justify-between">
 
           {/* Logo */}
@@ -28,21 +46,9 @@ export default function Navbar() {
             {/* Contact Us Button */}
             <button
               onClick={() => (window.location.href = "#")}
-              className="contact-us-btn
-                border border-white
-                text-[16px] md:text-[20px]
-                font-bold font-sans rounded-[14px]
-                cursor-pointer md:pb-1 pb-0 px-6 md:px-8
-                transition
-
-                /* Mobile (default) */
-                bg-transparent text-white
-
-                /* Desktop (md and up) */
-                md:bg-white md:text-black
-
-                hover:bg-white hover:text-black
-              "
+              className={`contact-us-btn border font-bold font-sans rounded-[14px] cursor-pointer md:pb-1 pb-0 px-6 md:px-8 transition
+                ${isSticky ? "border-white text-white" : "border-white text-white md:bg-white md:text-black hover:bg-white hover:text-black"}
+              `}
             >
               Contact Us
             </button>
@@ -50,7 +56,7 @@ export default function Navbar() {
             {/* Toggle Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center w-10 h-10 justify-center text-sm text-white md:hidden focus:outline-none"
+              className="inline-flex items-center w-10 h-10 justify-center text-sm text-white md:hidden focus:outline-none ml-3"
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -61,7 +67,7 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
               >
                 {isOpen ? (
-                  // Clean X
+                  // X icon
                   <path
                     stroke="currentColor"
                     strokeLinecap="round"
@@ -70,7 +76,7 @@ export default function Navbar() {
                     d="M4 4L20 20M20 4L4 20"
                   />
                 ) : (
-                  // 2-line Hamburger
+                  // Hamburger
                   <path
                     stroke="currentColor"
                     strokeLinecap="round"
@@ -85,8 +91,9 @@ export default function Navbar() {
 
           {/* Menu Links */}
           <div
-            className={`${isOpen ? "block" : "hidden"
-              } w-full md:flex md:w-auto md:order-1 items-center justify-between`}
+            className={`${
+              isOpen ? "block" : "hidden"
+            } w-full md:flex md:w-auto md:order-1 items-center justify-between transition-all duration-500`}
           >
             <ul className="flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-10 md:mt-0 md:border-0 mt-5">
               {[
@@ -100,7 +107,7 @@ export default function Navbar() {
                 <li key={link}>
                   <a
                     href="#"
-                    className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 font-sans font-bold text-[16px] md:text-[20px]"
+                    className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:text-white md:p-0 font-sans font-bold text-[16px] md:text-[20px] hover:text-gray-300 transition"
                   >
                     {link}
                   </a>

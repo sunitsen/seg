@@ -25,22 +25,20 @@ const images = [
 ];
 
 const MultiRowSlider = () => {
-  const [isClient, setIsClient] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // only render slider on client
+    setVisible(true);
   }, []);
-
-  if (!isClient) return null; // prevent server-side flash
 
   const rows = 3;
   const imagesPerRow = 5;
 
   return (
-    <div className="space-y-4  max-w-6xl mx-auto">
+    <div className={`space-y-4 max-w-6xl mx-auto heroSliderFade${visible ? " visible" : ""}`}>
       {Array.from({ length: rows }).map((_, rowIndex) => {
         const reverse = rowIndex % 2 === 1;
-        const shift = rowIndex * 50; // smaller shift for subtle stagger
+        const shift = rowIndex * 50;
 
         return (
           <div
@@ -49,33 +47,31 @@ const MultiRowSlider = () => {
             style={{ marginLeft: `${shift}px` }}
           >
             <Swiper
-              className=""
               modules={[Autoplay]}
               slidesPerView={imagesPerRow}
               spaceBetween={10}
               loop={true}
-              speed={5000}
+              speed={6000}
               autoplay={{
-                delay: 0,
+                delay: 1,
                 disableOnInteraction: false,
                 reverseDirection: reverse,
                 pauseOnMouseEnter: true,
               }}
               breakpoints={{
-                640: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 4 },
-                1280: { slidesPerView: 5 },
+                0: { slidesPerView: 5 },
+                640: { slidesPerView: 5 },
+                1024: { slidesPerView: 5 },
               }}
             >
               {images.map((img) => (
                 <SwiperSlide key={`${rowIndex}-${img.id}`}>
-                  <div className="relative w-full border border-[#232326] overflow-hidden aspect-[2/2]">
+                  <div className="relative w-full border border-[#232326] overflow-hidden aspect-square rounded-[10px] transition-transform duration-500 ease-in-out hover:scale-105">
                     <Image
                       src={img.src}
                       alt={img.alt}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-[10px]"
                     />
                   </div>
                 </SwiperSlide>
